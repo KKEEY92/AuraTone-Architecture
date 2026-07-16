@@ -1,31 +1,25 @@
 <div align="center">
-
-<img src="https://img.shields.io/badge/AuraTone_AI-Architecture_Showcase-1DB954?style=for-the-badge" alt="AuraTone"/>
-<img src="https://img.shields.io/badge/TypeScript-React-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
-<img src="https://img.shields.io/badge/Python-DSP-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python DSP"/>
-<img src="https://img.shields.io/badge/Gemini-AI-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini"/>
+  <h1>🎚️ AuraTone AI (Architecture)</h1>
+  <p><b>Public Architecture Showcase of a Proprietary Audio AI System</b></p>
+  
+  [![AuraTone](https://img.shields.io/badge/AuraTone_AI-Architecture_Showcase-1DB954?style=for-the-badge)]()
+  [![TypeScript](https://img.shields.io/badge/TypeScript-React-3178C6?style=for-the-badge&logo=typescript&logoColor=white)]()
+  [![Python](https://img.shields.io/badge/Python-DSP-3776AB?style=for-the-badge&logo=python&logoColor=white)]()
+  [![Gemini](https://img.shields.io/badge/Gemini-AI-4285F4?style=for-the-badge&logo=google&logoColor=white)]()
+</div>
 
 <br/>
-
-# 🎚️ AuraTone AI — Architecture Showcase
-
-### AI-assisted audio mastering & harmonic-mixing engine
-
-*Public architecture write-up of a proprietary system — how AuraTone analyzes,
-masters and harmonically sequences tracks. **No source code included.***
-
-</div>
 
 > 🔒 **Source code is private & proprietary.** Documentation only.
 > © 2026 Kevin Kuck — All Rights Reserved. Demo / access on request.
 
+## 🎯 Executive Summary (Business Value)
+
+This repository serves as a **public architectural showcase** of **AuraTone AI** — a proprietary DJ and audio production workstation. 
+
+AuraTone proves that heavy Digital Signal Processing (DSP) and Artificial Intelligence (Gemini) can be combined efficiently in a web-native environment. By separating the visual interface from the Python-based audio engine, AuraTone achieves automated mastering, harmonic sequencing (Camelot), and Traktor Pro 4 integrations without latency bottlenecks.
+
 ---
-
-## 📋 What is AuraTone AI?
-
-AuraTone is a **DJ / production workstation**: it analyzes audio (key, BPM, energy),
-masters it to loudness targets, and builds **harmonically coherent sets** — a software
-replacement for hardware analysis/mastering workflows, with Gemini assistance on top.
 
 ## 🏗️ System Architecture
 
@@ -47,6 +41,7 @@ graph TB
         GEM["Gemini (@google/genai)"]
         FB["Firebase"]
     end
+    
     APP --> UP --> DSP
     DSP --> ANA & MAST & HARM
     APP <--> GEM
@@ -54,7 +49,7 @@ graph TB
     DSP --> VIZ
 ```
 
-## ✨ Capabilities
+### ✨ Capabilities
 
 | Module | What it does |
 |---|---|
@@ -65,11 +60,7 @@ graph TB
 | **AI assist** | Gemini for guidance/automation around the DSP core. |
 | **Delivery** | Web app **and** native macOS app launcher. |
 
-## 🧰 Tech & APIs
-
-**React + Vite + Tailwind** (UI) · **Express/Node** (API) · **Python DSP** (librosa, ffmpeg) ·
-**Google Gemini** (`@google/genai`) · **Firebase** · **recharts** (visualization) ·
-native macOS app packaging.
+---
 
 ## 🎯 Engineering Notes
 
@@ -77,14 +68,16 @@ native macOS app packaging.
 - **Loudness-correct mastering** targeting broadcast/club LUFS levels with a 30 Hz high-pass and artifact removal.
 - **Harmonic coherence** enforced algorithmically (Camelot wheel) for smooth transitions.
 
-## 🎬 Demo
+---
 
-> _Placeholder — Demo-Video / Screenshots folgen._
-> <!-- ![AuraTone UI](docs/auratone-ui.png) -->
+## 💼 About the Architect (Available for Freelance)
 
-## 📄 License & Copyright
+Built and architected by **Kevin Kuck**. 
+I specialize in bridging the gap between cutting-edge Artificial Intelligence and polished, native Apple ecosystems. 
 
-**© 2026 Kevin Kuck — All Rights Reserved.** Architecture documentation only; the AuraTone
-source code is proprietary and not included here.
-
-<div align="center"><sub>Built by Kevin Kuck · KKI</sub></div>
+**Looking for an expert to build or scale your next AI product?**
+- 👨‍💻 **Role:** IT-Support Specialist | AI Architect | Apple Developer
+- 👔 **LinkedIn:** [Kevin Kuck](https://www.linkedin.com/in/kevin-kuck-it)
+- 🦊 **GitLab:** [KKEEY92](https://gitlab.com/KKEEY92)
+- 📄 **Interactive CV & Portfolio:** [CV_IT_KKEEY](https://kkeey92.github.io/CV_IT_KKEEY/)
+- 🤝 **Hire Me:** Available for freelance consulting, architecture design, and full-stack AI development.
