@@ -1,83 +1,86 @@
 <div align="center">
-  <h1>🎚️ AuraTone AI (Architecture)</h1>
-  <p><b>Public Architecture Showcase of a Proprietary Audio AI System</b></p>
-  
-  [![AuraTone](https://img.shields.io/badge/AuraTone_AI-Architecture_Showcase-1DB954?style=for-the-badge)]()
-  [![TypeScript](https://img.shields.io/badge/TypeScript-React-3178C6?style=for-the-badge&logo=typescript&logoColor=white)]()
-  [![Python](https://img.shields.io/badge/Python-DSP-3776AB?style=for-the-badge&logo=python&logoColor=white)]()
-  [![Gemini](https://img.shields.io/badge/Gemini-AI-4285F4?style=for-the-badge&logo=google&logoColor=white)]()
+  <h1>🎚️ AuraTone Architecture</h1>
+  <p><b>A local-first Apple-Silicon architecture for audio analysis, harmonic curation, waveform rendering and controlled mastering workflows.</b></p>
 </div>
 
 <br/>
 
-> 🔒 **Source code is private & proprietary.** Documentation only.
-> © 2026 Kevin Kuck — All Rights Reserved. Demo / access on request.
+## 🎯 Architectural Vision
 
-## 🎯 Executive Summary (Business Value)
+AuraTone AI is designed as a standalone macOS desktop workstation. It guarantees data sovereignty by running analysis and audio pipelines entirely locally on Apple Silicon, without relying on persistent cloud connections or exposing user data.
 
-This repository serves as a **public architectural showcase** of **AuraTone AI** — a proprietary DJ and audio production workstation. 
-
-AuraTone proves that heavy Digital Signal Processing (DSP) and Artificial Intelligence (Gemini) can be combined efficiently in a web-native environment. By separating the visual interface from the Python-based audio engine, AuraTone achieves automated mastering, harmonic sequencing (Camelot), and Traktor Pro 4 integrations without latency bottlenecks.
+- **Platform:** macOS / Apple Silicon (`aarch64`)
+- **Core:** Rust, Tauri 2, Tokio, SQLite
+- **Audio:** FFmpeg, AVFoundation/CoreAudio strategy, DSP-Sidecar
+- **GPU:** Metal Compute für Waveform-Peak-Pyramiden
+- **Privacy:** Analyse und Audiomaterial standardmäßig lokal
+- **Status:** Private implementation in active development; this repository documents architecture and engineering decisions.
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ System Context
 
 ```mermaid
 graph TB
-    subgraph UI["🖥️ Frontend (React / Vite)"]
+    subgraph UI["🖥️ Frontend (React 19 / Vite 6)"]
         APP["Workstation UI"]
-        VIZ["Waveform / Camelot wheel (recharts)"]
+        VIZ["Traktor Waveform & Camelot Wheel"]
     end
-    subgraph API["⚙️ Node / Express API"]
-        UP["Upload / job orchestration"]
-    end
-    subgraph DSP["🐍 Python DSP Engine"]
-        ANA["Analysis — key / BPM / energy (librosa)"]
-        MAST["Mastering — LUFS / high-pass (ffmpeg)"]
-        HARM["Harmonic set builder (Camelot ±1)"]
-    end
-    subgraph EXT["☁️ Services"]
-        GEM["Gemini (@google/genai)"]
-        FB["Firebase"]
+
+    subgraph TAURI["🦀 Native Rust Kernel (Tauri 2.0)"]
+        IPC["Tauri IPC & Command Handler"]
+        DB["SQLite Triade (catalog.db, cache.db, history.db)"]
+        PIPE["Audio Pipeline & DspSupervisor"]
+        FS["File Watcher"]
     end
     
-    APP --> UP --> DSP
-    DSP --> ANA & MAST & HARM
-    APP <--> GEM
-    APP <--> FB
-    DSP --> VIZ
+    subgraph SIDECARS["⚙️ Native Binaries"]
+        DSP["DSP Engine (Python/Librosa/FFmpeg - Native Binary)"]
+    end
+
+    subgraph GPU["⚡ Hardware Acceleration"]
+        METAL["Apple Silicon Metal GPU (Unified Memory)"]
+    end
+
+    APP <--> IPC
+    IPC --> DB & PIPE & FS
+    PIPE --> DSP
+    PIPE --> METAL
+    METAL --> VIZ
 ```
 
-### ✨ Capabilities
+---
 
-| Module | What it does |
-|---|---|
-| **Analysis** | Key, BPM and energy detection (librosa-based). |
-| **Mastering** | Loudness normalization to a LUFS target, high-pass, artifact cleanup (ffmpeg). |
-| **Harmonic mixing** | Camelot-style key flow (±1 step) → coherent sets/playlists. |
-| **Interop** | Traktor Pro import/export (`.nml`). |
-| **AI assist** | Gemini for guidance/automation around the DSP core. |
-| **Delivery** | Web app **and** native macOS app launcher. |
+## 🛠️ Design Principles
+
+1. **Local-first Privacy:** Alle Audiodaten, Metadaten und Machine-Learning-Berechnungen verbleiben auf der Hardware des Nutzers. Cloud-Erweiterungen (z.B. Gemini AI) sind strikt als Opt-In konzipiert.
+2. **Native Performance:** Anstatt Electron und Node.js nutzt die Architektur einen schlanken Rust-Kernel (Tauri 2), der direkten Zugriff auf das macOS-Dateisystem, FSEvents und die Metal GPU bietet.
+3. **Hermetische Sidecars:** Komplexe Python-basierte Audio-Machine-Learning-Pipelines (z.B. Librosa) sind in native ARM64-Binaries gebündelt, um Abhängigkeitsprobleme bei der Auslieferung zu vermeiden.
+4. **Resilientes Datenmodell:** Eine "3-Way SQLite Triade" isoliert den Katalog, Caching und Audit-Logs, um maximale Nebenläufigkeit und Datensicherheit bei Pipeline-Crashes zu garantieren.
 
 ---
 
-## 🎯 Engineering Notes
+## 📁 Repository Documentation
 
-- **Hybrid TS + Python**: React/Express front, Python for the heavy DSP — clean separation of UI and signal processing.
-- **Loudness-correct mastering** targeting broadcast/club LUFS levels with a 30 Hz high-pass and artifact removal.
-- **Harmonic coherence** enforced algorithmically (Camelot wheel) for smooth transitions.
+- [Architecture Details](docs/architecture.md)
+- [Runtime & Sidecars](docs/runtime-and-sidecars.md)
+- [Audio Pipeline](docs/audio-pipeline.md)
+- [Waveform & Metal GPU](docs/waveform-and-metal.md)
+- [Data & Reliability](docs/data-and-reliability.md)
+- [Privacy & Security](docs/privacy-and-security.md)
+- [Release Strategy](docs/release-strategy.md)
+
+*(This repository is a technical showcase. The actual source code remains proprietary and private.)*
 
 ---
 
-## 💼 About the Architect (Available for Freelance)
+## 🤝 Contact
 
-Built and architected by **Kevin Kuck**. 
-I specialize in bridging the gap between cutting-edge Artificial Intelligence and polished, native Apple ecosystems. 
+Developed & Architected by **Kevin Kuck** (Senior System Architect & Lead AI Engineer).
 
-**Looking for an expert to build or scale your next AI product?**
-- 👨‍💻 **Role:** IT-Support Specialist | AI Architect | Apple Developer
 - 👔 **LinkedIn:** [Kevin Kuck](https://www.linkedin.com/in/kevin-kuck-it)
 - 🦊 **GitLab:** [KKEEY92](https://gitlab.com/KKEEY92)
-- 📄 **Interactive CV & Portfolio:** [CV_IT_KKEEY](https://kkeey92.github.io/CV_IT_KKEEY/)
-- 🤝 **Hire Me:** Available for freelance consulting, architecture design, and full-stack AI development.
+- 📄 **Interactive Portfolio:** [CV_IT_KKEEY](https://kkeey92.github.io/CV_KKEEY/)
+- 🤝 **Contact & Hiring:** Bereit für High-End Freelance Consulting, KI-Architekturen & Native Desktop Engineering.
+
+> *"Bridging Apple Silicon Metal Hardware with Autonomous AI Reasoning."*
