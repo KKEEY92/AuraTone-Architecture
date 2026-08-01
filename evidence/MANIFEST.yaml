@@ -1,0 +1,41 @@
+schema_version: "1.0"
+
+project:
+  id: "auratone-ai"
+  name: "AuraTone AI Desktop"
+  implementation_repository: "private"
+  architecture_repository: "KKEEY92/AuraTone-Architecture"
+
+version:
+  codebase: "2.0.0"
+  latest_audited_git_tag: "v1.3.0"
+  public_binary_release: false
+
+evidence:
+  architecture:
+    status: "public"
+    path: "../README.md"
+
+  dsp_validation:
+    status: "public"
+    path: "DSP_VALIDATION.md"
+
+  example_output:
+    status: "sanitized"
+    path: "examples/library_analysis.sample.json"
+
+  screenshot:
+    status: "withheld_pending_sanitization"
+    path: null
+
+validation:
+  date: "2026-08-01"
+  source: "private implementation audit"
+  externally_reproducible_full_build: false
+
+limitations:
+  - "The complete implementation remains private."
+  - "No public signed macOS binary is available."
+  - "No public notarization evidence is provided."
+  - "The 120 Hz rendering claim is not publicly validated."
+  - "SLSA Level 3 is not publicly validated."

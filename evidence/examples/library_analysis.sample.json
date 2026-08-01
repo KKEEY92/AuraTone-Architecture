@@ -1,0 +1,17 @@
+{
+  "evidence_status": "real analysis values with identifying metadata removed",
+  "source": "AuraTone AI private implementation",
+  "verification_date": "2026-08-01",
+  "track": "Anonymized Test Track",
+  "analysis": {
+    "bpm": 99.4,
+    "camelot_key": "4A",
+    "lufs": -8.6,
+    "loudness_range_lu": 4.2,
+    "true_peak_dbtp": -0.8
+  },
+  "limitations": [
+    "This sample confirms the output structure and one completed DSP analysis.",
+    "It does not independently prove production readiness."
+  ]
+}
