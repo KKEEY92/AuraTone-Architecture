@@ -1,9 +1,16 @@
 <div align="center">
   <h1>🎚️ AuraTone Architecture</h1>
   <p><b>A local-first Apple-Silicon architecture for audio analysis, harmonic curation, waveform rendering and controlled mastering workflows.</b></p>
+  <p><i>(Architecture Specification & Engineering Blueprint Repository)</i></p>
+
+  [![Status](https://img.shields.io/badge/Status-Aktiv-brightgreen)]()
+  [![Version](https://img.shields.io/badge/Version-v1.0.0-blue)]()
+  [![Letzte Aktualisierung](https://img.shields.io/badge/Letzte_Aktualisierung-2026--08--08-00E5FF)]()
+  [![Visibility](https://img.shields.io/badge/Visibility-Öffentlich-orange)]()
 </div>
 
 <br/>
+
 
 ## 🎯 Architectural Vision
 
