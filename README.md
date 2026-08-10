@@ -4,12 +4,14 @@
   <p><i>(Architecture Specification & Engineering Blueprint Repository)</i></p>
 
   [![Status](https://img.shields.io/badge/Status-Aktiv-brightgreen)]()
-  [![Version](https://img.shields.io/badge/Version-v1.0.0-blue)]()
-  [![Letzte Aktualisierung](https://img.shields.io/badge/Letzte_Aktualisierung-2026--08--08-00E5FF)]()
-  [![Visibility](https://img.shields.io/badge/Visibility-Öffentlich-orange)]()
+  [![Version](https://img.shields.io/badge/Version-v2.0.0-blue)]()
+  [![Showcase PDF](https://img.shields.io/badge/Showcase_PDF-v2.0.0-orange.svg)](./docs/AuraTone_AI_v2.0_Architecture_Showcase.pdf)
+  [![Web Showcase](https://img.shields.io/badge/KKI_Glass-Interactive_Web-FF6B00.svg)](./docs/architecture_showcase.html)
 </div>
 
 <br/>
+
+[📄 **Download Architecture Showcase (PDF)**](./docs/AuraTone_AI_v2.0_Architecture_Showcase.pdf) · [🌐 **Open Interactive Web Showcase**](./docs/architecture_showcase.html)
 
 
 ## 🎯 Architectural Vision
