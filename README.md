@@ -5,13 +5,13 @@
 
   [![Status](https://img.shields.io/badge/Status-Aktiv-brightgreen)]()
   [![Version](https://img.shields.io/badge/Version-v2.0.0-blue)]()
-  [![Showcase PDF](https://img.shields.io/badge/Showcase_PDF-v2.0.0-orange.svg)](./docs/AuraTone_AI_v2.0_Architecture_Showcase.pdf)
-  [![Web Showcase](https://img.shields.io/badge/KKI_Glass-Interactive_Web-FF6B00.svg)](./docs/architecture_showcase.html)
+  [![Funktionsumfang PDF](https://img.shields.io/badge/Funktionsumfang_PDF-v2.0.0-orange.svg)](./docs/AuraTone_AI_v2.0_Funktionsumfang_und_Architektur.pdf)
+  [![Web Showcase](https://img.shields.io/badge/KKI_Glass-Interactive_Web-FF6B00.svg)](./docs/AuraTone_AI_v2.0_Funktionsumfang_und_Architektur.html)
 </div>
 
 <br/>
 
-[📄 **Download Architecture Showcase (PDF)**](./docs/AuraTone_AI_v2.0_Architecture_Showcase.pdf) · [🌐 **Open Interactive Web Showcase**](./docs/architecture_showcase.html)
+[📄 **Download Funktionsumfang & Architektur PDF (v2.0.0)**](./docs/AuraTone_AI_v2.0_Funktionsumfang_und_Architektur.pdf) · [🌐 **Open Interactive Web Specification**](./docs/AuraTone_AI_v2.0_Funktionsumfang_und_Architektur.html)
 
 
 ## 🎯 Architectural Vision
